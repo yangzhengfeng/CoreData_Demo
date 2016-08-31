@@ -50,11 +50,15 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
+#pragma mark - 应用程序沙箱
+// 返回应用程序Docment目录的NSURL类型
 - (NSURL *)applicationDocumentsDirectory {
     // The directory the application uses to store the Core Data store file. This code uses a directory named "com.lianshang.ls.coredata_demo" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+//  返回 被管理的对象模型
 - (NSManagedObjectModel *)managedObjectModel {
     // The managed object model for the application. It is a fatal error for the application not to be able to find and load its model.
     if (_managedObjectModel != nil) {
@@ -65,6 +69,7 @@
     return _managedObjectModel;
 }
 
+// 返回 持久化存储协调者
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it.
     if (_persistentStoreCoordinator != nil) {
@@ -93,7 +98,7 @@
     return _persistentStoreCoordinator;
 }
 
-
+//返回 被管理的对象上下文
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
     if (_managedObjectContext != nil) {
